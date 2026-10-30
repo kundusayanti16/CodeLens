@@ -1,0 +1,259 @@
+
+/* VISUALIZER SECTION */
+
+.visualizer {
+  width: min(1200px, calc(100% - 48px));
+  margin: 50px auto;
+  padding: 70px 0;
+}
+
+/* HEADING */
+
+.visualizer-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.visualizer-badge {
+  display: inline-block;
+  color: var(--teal-light);
+  background: rgba(24, 207, 197, 0.08);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.visualizer-heading h2 {
+  margin: 20px 0;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.visualizer-heading p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* MAIN CONTAINER */
+
+.visualizer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* CODE PANEL */
+
+.visualizer-code,
+.visualizer-data {
+  padding: 25px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.visualizer-code h3,
+.visualizer-data h3 {
+  color: var(--teal-light);
+  margin-bottom: 25px;
+}
+
+.visualizer-code pre {
+  background: #071d1e;
+  color: #b8fff9;
+  padding: 25px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 2;
+}
+
+/* VARIABLE CARDS */
+
+.variable-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.variable-card {
+  flex: 1;
+  padding: 20px;
+  background: rgba(24, 207, 197, 0.08);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.variable-card span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.variable-card h2 {
+  color: var(--teal-light);
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+/* EXECUTION INFO */
+
+.execution-info {
+  padding: 20px;
+  background: #071d1e;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.execution-info span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.execution-info h2 {
+  color: var(--teal-light);
+  margin: 10px 0;
+}
+
+.execution-info p {
+  color: #c5e8e7;
+  line-height: 1.6;
+}
+
+/* BUTTONS */
+
+.visualizer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visualizer-buttons button {
+  padding: 11px 17px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: white;
+}
+
+.prev-btn {
+  background: #164748;
+  border: 1px solid #287d7a;
+  color: white;
+}
+
+.next-btn {
+  background: var(--teal);
+  border: 1px solid var(--teal);
+  color: white;
+}
+
+.visualizer-buttons button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.visualizer-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .visualizer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .visualizer {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .visualizer {
+    width: calc(100% - 32px);
+  }
+
+  .visualizer-code,
+  .visualizer-data {
+    padding: 18px;
+  }
+
+  .variable-cards {
+    gap: 10px;
+  }
+
+  .visualizer-buttons button {
+    flex: 1;
+  }
+}
+
+
+
+/* CODE DISPLAY */
+
+.code-display {
+  background: #071d1e;
+  border-radius: 12px;
+  padding: 18px 0;
+  overflow-x: auto;
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+  padding: 5px 18px;
+
+  color: #b8fff9;
+  font-family: monospace;
+  font-size: 0.95rem;
+
+  transition: background 0.3s ease;
+}
+
+.line-number {
+  display: inline-block;
+  width: 35px;
+  margin-right: 15px;
+
+  color: #648b89;
+  text-align: right;
+  user-select: none;
+}
+
+.code-row.active-line {
+  background: rgba(24, 207, 197, 0.2);
+  border-left: 3px solid var(--teal-light);
+  color: #ffffff;
+}
+
+.code-row.active-line .line-number {
+  color: var(--teal-light);
+}
+
+/* EXECUTION PROGRESS */
+
+.progress-track {
+  width: 100%;
+  height: 7px;
+  margin-bottom: 22px;
+
+  background: #183b3c;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
